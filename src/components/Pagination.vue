@@ -39,35 +39,35 @@ export default {
 </script>
 
 <style lang="scss">
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 
-    div {
-      display: flex;
-      margin-bottom: 10px;
+  div {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100px;
+    height: 35px;
+    border: 1px solid $rickandmorty-brown;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: $rickandmorty-yellow;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:active, &:hover {
+      opacity: 0.8;
     }
 
-    button {
-      width: 100px;
-      height: 35px;
-      border: 1px solid $rickandmorty-brown;
-      border-radius: 5px;
-      margin: 0 10px;
-      background-color: $rickandmorty-yellow;
-      font-size: 16px;
-      cursor: pointer;
-
-      &:active, &:hover {
-        opacity: 0.8;
-      }
-
-      &[disabled] {
-        opacity: 0.35;
-        cursor: initial;
-      }
+    &[disabled] {
+      opacity: 0.35;
+      cursor: initial;
     }
   }
+}
 </style>

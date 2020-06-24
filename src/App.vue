@@ -18,26 +18,6 @@ export default {
 </script>
 
 <style lang="scss">
-.app {
-  display: flex;
-  height: 100%;
-
-  // Elements used inside /views components
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: auto;
-    padding: 20px;
-    background-color: $rickandmorty-green;
-    color: $rickandmorty-brown;
-
-    section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-    }
-  }
-}
+@import "@/css/_style.scss";
+@import "@/css/_main.scss";
 </style>
