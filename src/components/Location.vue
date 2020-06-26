@@ -1,17 +1,22 @@
 <template>
-  <article class="location">
-    <p class="name">{{location.name}}</p>
+  <section class="location">
+    <p class="name"
+       :title="location.name | capitalize">
+      {{location.name | capitalize}}
+    </p>
     <p>
-      <span>Type: </span>
-      <span>
+      <span class="title">Type: </span>
+      <span :title="location.type | capitalize">
         {{location.type | capitalize}}
       </span>
     </p>
     <p>
-      <span>Dimension: </span>
-      <span>{{location.dimension | capitalize}}</span>
+      <span class="title">Dimension: </span>
+      <span :title="location.dimension | capitalize">
+        {{location.dimension | capitalize}}
+      </span>
     </p>
-  </article>
+  </section>
 </template>
 
 <script>
@@ -22,40 +27,24 @@ export default {
 </script>
 
 <style lang="scss">
-.location {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: $rickandmorty-dark-pink;
-
+.app main article section.location {
   p {
-    margin-bottom: 7px;
+    margin-top: 6px;
 
     &.name {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    span:first-child {
-      color: $rickandmorty-yellow;
-      font-weight: bold;
+      margin: 0 0 9px;
     }
   }
 
   @media only screen and (min-width: 900px) {
     width: 350px;
-    height: 140px;
-    justify-content: space-evenly;
+    flex: 1 0 auto;
+    justify-content: space-between;
 
     p {
-      margin: 0;
-
-      &.name {
-        margin-bottom: 20px;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

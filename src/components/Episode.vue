@@ -1,12 +1,15 @@
 <template>
-  <article class="episode">
-    <p class="name">{{episode.name}}</p>
-    <p>{{episode.episode}}</p>
-    <p>
-      <span>Air date: </span>
-      <span>{{episode.air_date}}</span>
+  <section class="episode">
+    <p class="name"
+       :title="episode.name | capitalize">
+      {{episode.name | capitalize}}
     </p>
-  </article>
+    <p class="number">{{episode.episode | capitalize}}</p>
+    <p>
+      <span class="title">Air date: </span>
+      <span>{{episode.air_date | capitalize}}</span>
+    </p>
+  </section>
 </template>
 
 <script>
@@ -17,34 +20,24 @@ export default {
 </script>
 
 <style lang="scss">
-.episode {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: $rickandmorty-dark-pink;
+.app main article section.episode {
+  .number {
+    font-size: 16px
+  }
 
-  p {
-    &.name {
-      font-size: 24px;
-    }
-
-    &:last-child {
-      margin-top: 15px;
-    }
-
-    span:first-child {
-      color: $rickandmorty-yellow;
-      font-weight: bold;
-    }
+  p:last-child {
+    margin-top: 15px;
   }
 
   @media only screen and (min-width: 900px) {
-    width: 450px;
-    height: 96px;
-    justify-content: space-evenly;
+    width: 350px;
+    flex: 1 0 auto;
+
+    .name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }
 </style>

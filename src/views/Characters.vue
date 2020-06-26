@@ -4,12 +4,12 @@
     <Error v-else-if="error"
            :error="error">
     </Error>
-    <section v-else>
+    <article v-else>
       <Character v-for="character in currentPageCharacters(page)"
                  :key="character.id"
                  :char="character">
       </Character>
-    </section>
+    </article>
     <Pagination v-if="!loading"
                 name="characters"
                 :numberOfPages="numberOfCharactersPages"

@@ -43,11 +43,11 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
 
   div {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   button {
@@ -61,11 +61,12 @@ footer {
     cursor: pointer;
 
     &:active, &:hover {
-      opacity: 0.8;
+      background-color: $rickandmorty-yellow-opacity;
     }
 
     &[disabled] {
       opacity: 0.35;
+      background-color: $rickandmorty-yellow;
       cursor: initial;
     }
   }

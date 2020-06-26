@@ -4,12 +4,12 @@
     <Error v-else-if="error"
            :error="error">
     </Error>
-    <section v-else>
+    <article v-else>
       <Episode v-for="episode in currentPageEpisodes(page)"
                :episode="episode"
                :key="episode.id">
       </Episode>
-    </section>
+    </article>
     <Pagination v-if="!loading"
                 name="episodes"
                 :numberOfPages="numberOfEpisodesPages"

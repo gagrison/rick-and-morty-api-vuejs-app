@@ -34,11 +34,12 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  overflow: auto;
+  padding: 6px;
   background-color: $rickandmorty-yellow;
 
   .logo {
-    margin-bottom: 70px;
+    margin-bottom: 80px;
   }
 
   img {
@@ -50,10 +51,12 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 12px;
 
     &.router-link-active, &:hover {
-      opacity: 0.5;
+      background-color: rgba(0, 0, 0, 0.1);
     }
 
     .text {
@@ -69,7 +72,8 @@ aside {
     }
 
     nav a {
-      margin-bottom: 25px;
+      padding: 2px;
+      margin-bottom: 20px;
 
       .text {
         display: block;

@@ -2,21 +2,51 @@
   display: flex;
   height: 100%;
 
-  // Elements used inside /views components
   main {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: auto;
-    padding: 20px;
+    padding: 20px 20px 12px;
     background-color: $rickandmorty-green;
     color: $rickandmorty-brown;
 
-    section {
+    article {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+      flex-direction: column;
+
+      section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        background-color: $rickandmorty-dark-pink;
+
+        .name {
+          font-size: 24px;
+        }
+
+        .title {
+          color: $rickandmorty-yellow;
+          font-weight: bold;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      padding-right: 10px;
+
+      article {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        section {
+          margin-right: 10px;
+        }
+      }
     }
   }
 }

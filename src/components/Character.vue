@@ -1,100 +1,69 @@
 <template>
-  <article class="character">
-    <img :src="char.image"
-         :alt="char.name">
+  <section class="character">
+    <img :src="char.image" :alt="char.name"/>
     <div class="content">
-      <div class="row nameRow">
-        <p class="name">{{char.name}}</p>
+      <div class="row firstRow">
+        <p class="name"
+           :title="char.name | capitalize">
+          {{char.name | capitalize}}
+        </p>
         <p>
-          <span :class="[statusClass, 'status']"></span>
-          <span>{{char.status | capitalize}} - </span>
-          <span v-if="char.species !== 'unknown'">{{char.species}} </span>
-          <span v-if="char.gender !== 'unknown'">{{char.gender}}</span>
+          <Status :status="char.status"/>
+          <span v-if="char.species !== 'unknown'">{{char.species | capitalize}} </span>
+          <span v-if="char.gender !== 'unknown'">{{char.gender | capitalize}}</span>
         </p>
       </div>
       <div class="row">
-        <p>Origin:</p>
-        <p class="text">{{char.origin.name | capitalize}}</p>
+        <p class="title">Origin:</p>
+        <p class="text"
+           :title="char.origin.name | capitalize">
+          {{char.origin.name | capitalize}}
+        </p>
       </div>
       <div class="row">
-        <p>Last known location:</p>
-        <p class="text">{{char.location.name | capitalize}}</p>
+        <p class="title">Last known location:</p>
+        <p class="text"
+           :title="char.location.name | capitalize">
+          {{char.location.name | capitalize}}
+        </p>
       </div>
     </div>
-  </article>
+  </section>
 </template>
 
 <script>
+import Status from '@/components/Status.vue';
+
 export default {
   name: 'Character',
-  data () {
-    return {
-      statusClass: {
-        alive: this.char.status.toLowerCase() === 'alive',
-        dead: this.char.status.toLowerCase() === 'dead'
-      }
-    };
-  },
-  props: ['char']
+  props: ['char'],
+  components: { Status }
 };
 </script>
 
 <style lang="scss">
-.character {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: $rickandmorty-dark-pink;
-
+.app main article section.character {
   img {
     width: 100%;
   }
 
   .content {
-    padding: 5px;
+    padding: 12px 5px 5px;
 
     .row {
-      margin-top: 17px;
+      margin-top: 5px;
 
-      &.nameRow {
-        margin: 0 0 33px 0;
-        padding-top: 8px;
-
-        .name {
-          font-size: 24px;
-        }
+      &.firstRow {
+        margin: 0 0 25px 0;
       }
 
-      &:not(.nameRow) p:first-child {
-        margin-bottom: 5px;
-        color: $rickandmorty-yellow;
-        font-weight: bold;
-      }
-    }
-
-    .status {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 5px;
-      background-color: #aaa;
-
-      &.alive {
-        background-color: #0f0;
-      }
-
-      &.dead {
-        background-color: #f00;
+      .title {
+        margin-bottom: 2px;
       }
     }
   }
 
-  @media only screen and (min-width: 900px) {
-    width: 500px;
+  @media only screen and (min-width: 640px) {
     flex-direction: row;
 
     img {
@@ -105,25 +74,21 @@ export default {
     .content {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      height: 200px;
+      justify-content: space-between;
       overflow: hidden;
       margin-left: 15px;
 
-      .row {
-        margin: 0;
-
-        &.nameRow {
-          padding: 0;
-        }
-
-        .text {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
+      .name, .text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
+  }
+
+  @media only screen and (min-width: 900px) {
+    width: 500px;
+    flex: 1 0 auto;
   }
 }
 </style>

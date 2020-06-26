@@ -4,7 +4,9 @@
   padding: 0;
   border: 0;
   margin: 0;
+  outline: none;
   box-sizing: border-box;
+  user-select: none;
 }
 
 html, body {
@@ -17,8 +19,4 @@ a:active,
 a:visited {
   color: inherit;
   text-decoration: none;
-}
-
-button {
-  outline: none;
 }

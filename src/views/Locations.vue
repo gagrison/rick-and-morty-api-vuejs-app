@@ -4,12 +4,12 @@
     <Error v-else-if="error"
            :error="error">
     </Error>
-    <section v-else>
+    <article v-else>
       <Location v-for="location in currentPageLocations(page)"
                 :location="location"
                 :key="location.id">
       </Location>
-    </section>
+    </article>
     <Pagination v-if="!loading"
                 name="locations"
                 :numberOfPages="numberOfLocationsPages"
