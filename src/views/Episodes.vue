@@ -8,9 +8,6 @@
       <Episode v-for="episode in currentPageEpisodes(page)"
                :episode="episode"
                :key="episode.id">
-        <p>{{episode.episode}}</p>
-        <p>{{episode.name}}</p>
-        <p>Air date: {{episode.air_date}}</p>
       </Episode>
     </section>
     <Pagination v-if="!loading"

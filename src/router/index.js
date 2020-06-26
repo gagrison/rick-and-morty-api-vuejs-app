@@ -6,6 +6,8 @@ import Episodes from '@/views/Episodes.vue';
 
 Vue.use(VueRouter);
 
+const props = (route) => ({ page: Number(route.query.page) });
+
 const routes = [
   {
     path: '/',
@@ -20,19 +22,19 @@ const routes = [
     path: '/characters',
     name: 'Characters',
     component: Characters,
-    props: (route) => ({ page: Number(route.query.page) })
+    props
   },
   {
     path: '/locations',
     name: 'Locations',
     component: Locations,
-    props: (route) => ({ page: Number(route.query.page) })
+    props
   },
   {
     path: '/episodes',
     name: 'Episodes',
     component: Episodes,
-    props: (route) => ({ page: Number(route.query.page) })
+    props
   }
 ];
 

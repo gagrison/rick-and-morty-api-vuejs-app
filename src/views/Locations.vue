@@ -8,9 +8,6 @@
       <Location v-for="location in currentPageLocations(page)"
                 :location="location"
                 :key="location.id">
-        <p>{{location.name}}</p>
-        <p>Type: {{location.type}}</p>
-        <p>Dimension: {{location.dimension}}</p>
       </Location>
     </section>
     <Pagination v-if="!loading"
