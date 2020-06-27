@@ -3,8 +3,7 @@
     <router-link to="/"
                  class="logo"
                  title="Home">
-      <img src="@/assets/logo.png"
-           alt="logo">
+      <img src="@/assets/logo.png" alt="logo">
     </router-link>
     <nav>
       <router-link to="characters?page=1">
